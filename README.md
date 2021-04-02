@@ -1,2 +1,0 @@
-# MarioPlan
-Gerenciador de projetos
