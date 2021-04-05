@@ -8,7 +8,7 @@ class SignIn extends Component {
     }
     handleChange = (e) => {
 
-        const {name, value} = e.target;        
+       // const {name, value} = e.target;        
 
        /*  if(e.target.type === 'checkbox'){
             value= e.target.checked;

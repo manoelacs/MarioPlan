@@ -1,26 +1,33 @@
 import React, { Component } from 'react'
+import { createProject } from '../store/actions/projectsActions';
+import { connect } from 'react-redux';
 
-class SignUp extends Component {
+const mapDispatchToProps = ( dispatch ) => {
+    return{
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+class CreateProject extends Component {   
+
     state={
+
         title: '',
-        content: '',     
+        content: '', 
+    }  
 
+    handleChange = (e) => {      
+
+        this.setState({ [e.target.id]: e.target.value })
     }
 
-    handleChange = (e) => {
-
-        const {name, value} = e.target;      
-
-        this.setState({ [name]: value})
-    }
     handleSubmit = (e) => {
-        
-        e.preventDefault();
 
-        console.log(e)
+        e.preventDefault();
+        this.props.createProject(this.state);
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className='container'>
                 <form action="" onSubmit={this.handleSubmit} className="white">
@@ -45,5 +52,4 @@ class SignUp extends Component {
         )
     }
 }
-
-export default SignUp;
+export default  connect(null, mapDispatchToProps)(CreateProject); // o motivo desse null
