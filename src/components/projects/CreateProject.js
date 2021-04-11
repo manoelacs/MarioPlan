@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import { createProject } from '../store/actions/projectsActions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const mapDispatchToProps = ( dispatch ) => {
     return{
         createProject: (project) => dispatch(createProject(project))
     }
 }
+ 
 class CreateProject extends Component {   
 
+    
     state={
 
         title: '',
         content: '', 
-    }  
+    } 
+
+    
+   
 
     handleChange = (e) => {      
 
@@ -21,10 +27,13 @@ class CreateProject extends Component {
     }
 
     handleSubmit = (e) => {
-
+        console.log(this.props.router);
         e.preventDefault();
         this.props.createProject(this.state);
+        this.props.history.push('/');
+
     }
+   
 
     render() {
         console.log(this.props);
@@ -42,7 +51,7 @@ class CreateProject extends Component {
                     </div>
                    
                     <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0"> Create </button>
+                        <button type='submit' className="btn pink lighten-1 z-depth-0"> Create </button>
                     </div>
 
                 </form>

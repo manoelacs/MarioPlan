@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import firebase from 'firebase/app'; 
 
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose, } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './components/store/reducers/rootReducer';
 import thunk from 'redux-thunk';
-import { createFirestoreInstance, getFirestore, firestoreReducer } from 'redux-firestore';
-import { ReactReduxFirebaseProvider, getFirebase, firebaseReducer } from 'react-redux-firebase';
+import { createFirestoreInstance, getFirestore, } from 'redux-firestore';
+import { ReactReduxFirebaseProvider, getFirebase, } from 'react-redux-firebase';
 
 import firebaseConfig from './config/firebaseConfig';
 
