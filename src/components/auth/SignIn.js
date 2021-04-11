@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
+import { singIn } from '../../store/actions/authActions'
 
 class SignIn extends Component {
     state={
@@ -8,19 +10,12 @@ class SignIn extends Component {
     }
     handleChange = (e) => {
 
-       // const {name, value} = e.target;        
-
-       /*  if(e.target.type === 'checkbox'){
-            value= e.target.checked;
-        } */
-
         this.setState({ [e.target.id]: e.target.value})
     }
     handleSubmit = (e) => {
         
         e.preventDefault();
-
-        console.log(e)
+        console.log(this.state)
     }
 
     render() {
@@ -47,6 +42,10 @@ class SignIn extends Component {
             </div>
         )
     }
-}
+};
+const mapDispatchToProps = ( dispatch ) => {
+    return{
+        signIn: (creds) => dispatch( singIn(creds) )
+    }
 
-export default SignIn
+}; export default connect(null, mapDispatchToProps)(SignIn);
