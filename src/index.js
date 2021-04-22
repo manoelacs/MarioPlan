@@ -6,7 +6,7 @@ import firebase from 'firebase/app';
 
 import { createStore, applyMiddleware, compose, } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './components/store/reducers/rootReducer';
+import rootReducer from './store/reducers/rootReducer';
 import thunk from 'redux-thunk';
 import { createFirestoreInstance, getFirestore, } from 'redux-firestore';
 import { ReactReduxFirebaseProvider, getFirebase, } from 'react-redux-firebase';
@@ -18,12 +18,19 @@ const store = createStore( rootReducer,
     applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
   )
 );
+const rrfConfig = {
+  enableLogging: false,
+  userProfile: 'users', // root that user profiles are written to
+  updateProfileOnLogin: false, // enable/disable updating of profile on login
+  useFirestoreForProfile: true, // Save profile to Firestore instead of Real Time Database
+  useFirestoreForStorageMeta: true // Metadata associated with storage file uploads goes to Firestore
+}
 
-const rrfProps = {
+const rrfProps = {  
   firebase,
   config: firebaseConfig,
   dispatch: store.dispatch,
-  createFirestoreInstance
+  createFirestoreInstance,
 };
 
 ReactDOM.render(
