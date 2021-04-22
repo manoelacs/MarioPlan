@@ -28,7 +28,7 @@ const rrfConfig = {
 
 const rrfProps = {  
   firebase,
-  config: firebaseConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
 };
