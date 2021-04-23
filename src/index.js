@@ -19,11 +19,11 @@ const store = createStore( rootReducer,
   )
 );
 const rrfConfig = {
-  enableLogging: false,
+ // enableLogging: false,
   userProfile: 'users', // root that user profiles are written to
-  updateProfileOnLogin: false, // enable/disable updating of profile on login
+ // updateProfileOnLogin: false, // enable/disable updating of profile on login
   useFirestoreForProfile: true, // Save profile to Firestore instead of Real Time Database
-  useFirestoreForStorageMeta: true // Metadata associated with storage file uploads goes to Firestore
+  //useFirestoreForStorageMeta: true // Metadata associated with storage file uploads goes to Firestore
 }
 
 const rrfProps = {  

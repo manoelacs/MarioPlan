@@ -5,7 +5,8 @@ import ProjectSummary from './ProjectSummary';
 
 const ProjectList = ( {projects }) => {
 
-    console.log( projects );
+   // console.log( projects );
+
     return(
         
         <div className="project-list section">

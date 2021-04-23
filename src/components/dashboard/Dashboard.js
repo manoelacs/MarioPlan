@@ -12,28 +12,29 @@ import ProjectList from '../projects/ProjectList';
 class Dashboard extends Component{
 
     render(){
-       // console.log(this.props)
+        //console.log(this.props)
        const { projects, auth } = this.props;
 
-       if(!auth.uid) return < Redirect to= '/signin'/>
-        return(
-            <div className="dashboead container">
-                <div className="row">
-                    <div className="col s12 m6">
-                        <ProjectList projects={ projects }/>
-                    </div>
-                    <div className="col s12 m5 offset-m1">
-                        <Notifications/>
+       if(!auth.uid) {return < Redirect to= '/signin'/>}
+       
+            return(
+                <div className="dashboead container">
+                    <div className="row">
+                        <div className="col s12 m6">
+                            <ProjectList projects={ projects }/>
+                        </div>
+                        <div className="col s12 m5 offset-m1">
+                            <Notifications/>
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-        );
+            );
     }
 };
 const mapStateToProps = (state) => {
-    console.log(state);
+   // console.log(state);
     return{
         projects: state.firestore.ordered.projects,
         auth: state.firebase.auth,
